@@ -62,10 +62,13 @@ ifeq ($(BOARD_WLAN_DEVICE),UNITE)
 else ifeq ($(BOARD_WLAN_VENDOR), INTEL)
   LOCAL_SRC_FILES += wifi/wifi_intel.c
   LOCAL_C_INCLUDES += $(LOCAL_PATH)/../../external/wpa_supplicant_8/src/common
+else ifeq ($(BOARD_WIFI_VENDOR), realtek)
+  LOCAL_SRC_FILES += ../realtek/wlan/libhardware_legacy/wifi/wifi_realtek.c
 else
   LOCAL_SRC_FILES += wifi/wifi.c
   LOCAL_C_INCLUDES += $(LOCAL_PATH)/../../external/wpa_supplicant_8/src/common
 endif
+
 
 ifdef USES_TI_MAC80211
   LOCAL_STATIC_LIBRARIES := libnl_2
